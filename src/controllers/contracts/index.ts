@@ -1,2 +1,2 @@
-export * from './getUserContract'
-export * from './getAllContracts'
+export * from './getUserContracts'
+export * from './getContractById'

@@ -15,6 +15,20 @@ module.exports = {
       status: {
         type: Sequelize.ENUM('new', 'in_progress', 'terminated'),
       },
+      clientId: {
+        references: {
+          model: 'Profile',
+          key: 'id',
+        },
+        type: Sequelize.INTEGER,
+      },
+      contractorId: {
+        references: {
+          model: 'Profile',
+          key: 'id',
+        },
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

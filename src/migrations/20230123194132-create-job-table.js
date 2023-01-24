@@ -23,6 +23,13 @@ module.exports = {
       paymentDate: {
         type: Sequelize.DATE,
       },
+      contractId: {
+        references: {
+          model: 'Contract',
+          key: 'id',
+        },
+        type: Sequelize.INTEGER,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

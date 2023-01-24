@@ -9,7 +9,9 @@ module.exports = {
         lastName: 'Potter',
         profession: 'Wizard',
         balance: 1150,
-        type: 'client'
+        type: 'client',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         id: 2,
@@ -17,7 +19,9 @@ module.exports = {
         lastName: 'Robot',
         profession: 'Hacker',
         balance: 231.11,
-        type: 'client'
+        type: 'client',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         id: 3,
@@ -25,7 +29,9 @@ module.exports = {
         lastName: 'Snow',
         profession: 'Knows nothing',
         balance: 451.3,
-        type: 'client'
+        type: 'client',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         id: 4,
@@ -33,7 +39,9 @@ module.exports = {
         lastName: 'Kethcum',
         profession: 'Pokemon master',
         balance: 1.3,
-        type: 'client'
+        type: 'client',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         id: 5,
@@ -41,7 +49,9 @@ module.exports = {
         lastName: 'Lenon',
         profession: 'Musician',
         balance: 64,
-        type: 'contractor'
+        type: 'contractor',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         id: 6,
@@ -49,7 +59,9 @@ module.exports = {
         lastName: 'Torvalds',
         profession: 'Programmer',
         balance: 1214,
-        type: 'contractor'
+        type: 'contractor',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         id: 7,
@@ -57,7 +69,9 @@ module.exports = {
         lastName: 'Turing',
         profession: 'Programmer',
         balance: 22,
-        type: 'contractor'
+        type: 'contractor',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         id: 8,
@@ -65,7 +79,9 @@ module.exports = {
         lastName: 'II Elessar Telcontarvalds',
         profession: 'Fighter',
         balance: 314,
-        type: 'contractor'
+        type: 'contractor',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       }
     ], {});
 
