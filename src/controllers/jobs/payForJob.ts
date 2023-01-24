@@ -36,8 +36,10 @@ export async function payForJob(req: Request, res: Response) {
         { where: { id: req.profile.id } },
         { transaction: t },
       );
-    } catch (error) {
+
       await t.commit();
+    } catch (error) {
+      await t.rollback();
       throw error;
     }
 
