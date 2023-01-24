@@ -19,28 +19,30 @@ export async function payForJob(req: Request, res: Response) {
 
     const contract = await models.Contract.findOne({ where: { clientId: req.profile.id } });
     if (!contract) return createFailResponse(req, res, 404, 'The requested contract was not found');
-    
-    await models.Profile.update(
-      {
-        balance: req.profile.balance - contract.price,
-      },
-      { where: { id: req.profile.id } },
-      { transaction: t },
-    );
 
-    await models.Profile.increment(
-      {
-        balance: contract.price,
-      },
-      { where: { id: req.profile.id } },
-      { transaction: t },
-    );
+    try {
+      await models.Profile.update(
+        {
+          balance: req.profile.balance - contract.price,
+        },
+        { where: { id: req.profile.id } },
+        { transaction: t },
+      );
 
-    await t.commit();
+      await models.Profile.increment(
+        {
+          balance: contract.price,
+        },
+        { where: { id: req.profile.id } },
+        { transaction: t },
+      );
+    } catch (error) {
+      await t.commit();
+      throw error;
+    }
 
     createSuccessResponse(res, 200);
   } catch (e) {
-    await t.rollback();
     createErrorResponse(req, res, 500, e.message, e);
   }
 }
