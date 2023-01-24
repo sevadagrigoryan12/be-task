@@ -1,0 +1,45 @@
+{
+  "name": "deel-task",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "express-validation": "3.0.5",
+    "sequelize": "^6.3.4",
+    "sqlite3": "^4.0.1"
+  },
+  "scripts": {
+    "prebuild": "rm -rf ./dist && mkdir dist",
+    "build": "yarn prebuild && tsc",
+    "start": "yarn build && NODE_PATH=./dist node ./src/bin/www",
+    "dev": "NODE_PATH=./dist nodemon -e ts,js -w src --exec 'tsc && node --inspect ./src/bin/www'",
+    "seed": "node ./scripts/seedDb.js",
+    "db:migrate": "./node_modules/.bin/sequelize db:migrate",
+    "db:seed": "./node_modules/.bin/sequelize db:seed",
+    "db:undo": "./node_modules/.bin/sequelize db:migrate:undo",
+    "db:new": "./node_modules/.bin/sequelize migration:create",
+    "create:migration": "sequelize migration:generate --models-path src/data/models --migrations-path src/migrations --name",
+    "create:seeder": "sequelize seed:generate --models-path src/data/models --seeders-path src/seeders --name"
+  },
+  "devDependencies": {
+    "@types/dotenv": "8.2.0",
+    "@types/express": "4.17.6",
+    "@types/hapi__joi": "^17.1.4",
+    "@types/jest": "25.2.3",
+    "@types/validator": "^13.1.0",
+    "concurrently": "4.1.0",
+    "jest": "26.0.1",
+    "nodemon": "1.19.1",
+    "prettier": "2.0.5",
+    "supertest": "4.0.2",
+    "ts-jest": "26.1.0",
+    "typescript": "3.7.2",
+    "sequelize-cli": "5.5.1"
+  },
+  "engines": {
+    "node": ">=10.16.3"
+  },
+  "engineStrict": true
+}
