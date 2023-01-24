@@ -1,10 +1,12 @@
 import { Router } from 'express';
 import { healthController } from 'controllers/health';
 import contracts from 'routes/api/contracts';
+import jobs from 'routes/api/jobs';
 
 const router = Router();
 
 router.use(contracts);
+router.use(jobs);
 
 /**
  * @api {get} /health Request Health information
